@@ -1,11 +1,11 @@
 # トレイトについてソースを追いかけてみた
+
 やんばるエキスパートの共同開発において、Laravelを使用したアプリケーションを作成しています。
 教材にちらっと出てきて光の速さで過ぎ去っていった`トレイト`を、ログイン認証のソースコードで追いかけてみました。
 
 # web.php
 
-```web.php
-
+```
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 ```
 (訳)ドメイン以下の`login`にGETリクエスト(アクセス)があったら`Auth\LoginController`内の`showLoginForm`にルーティングせよ。
@@ -14,8 +14,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 「先生！`Auth\LoginController`の中に`showLoginForm`がありまへん！」
 不思議ですね。アクションがないのにも関わらず、たしかにログイン機能は使えています。どうしてでしょうか。
 
-```Auth\LoginController.php
-
+```
 (前略)
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -40,8 +39,7 @@ class LoginController extends Controller
 闇の領域である`vendor`以下に来てしまったようです。闇のゲーム始まってしまいそうですね。
 
 
-```AuthenticatesUsers.php
-
+```
 <?php
 
 namespace Illuminate\Foundation\Auth;
